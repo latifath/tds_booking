@@ -2,6 +2,20 @@
     .msg{
         font-size: 36px;
     }
+
+    @media only screen and (max-width: 991px){
+        .booking-form form button{
+            margin-top: 75px;
+
+        }
+        .booking-form form .select-option {
+            margin-bottom: 50px;
+        }
+
+        .adulte-span {
+            margin-top: 50px;
+        }
+    }
 </style>
 
 <div class="booking-area">
@@ -52,7 +66,7 @@
                 </div>
                 <div class="select-optionx mr-3">
                         <div class="boking-tittle">
-                            <span>Adultes:</span>
+                            <span class="adulte-span">Adultes:</span>
                         </div>
                         <div class="select-option">
                             <select name="select" id="adult">
