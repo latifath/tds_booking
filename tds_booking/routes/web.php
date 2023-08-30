@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SitePulicController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\LocalizationController;
 
 /*
@@ -28,16 +29,16 @@ Route::get('/hotel/{id}/chambres', [SitePulicController::class, 'show_room'])->n
 
 Route::get('/hotel/{id}/chambres/{id_chambre}/details', [SitePulicController::class, 'show'])->name('root_show_detail_romm_hotel');
 
+Route::get('/search', [SitePulicController::class, 'search'])->name('root_hotel_search');
+
+Route::post('/verifier-disponibilite', [ReservationController::class, 'verifierDisponibilite'])->name('root_verifier_disponibilite');
+
+
 Route::get('locale/{locale}', function ($locale) {
     App::setLocale($locale);
     session()->put('locale', $locale);
     return redirect()->back();
 })->name('locale.switch');
-
-
-
-
-
 
 Route::middleware([
     'auth:sanctum',

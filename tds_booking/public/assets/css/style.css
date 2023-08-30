@@ -52,7 +52,7 @@ h2 {
 	font-size: 36px;
 }
 h3 {
-	font-size: 30px;
+	font-size: 20px;
 }
 h4 {
 	font-size: 24px;
@@ -409,7 +409,7 @@ ul, ol {
 .menu-item .nav-menu .mainmenu li.active a:after {
 	opacity: 1;
 }
-.menu-item .nav-menu .mainmenu li:hover>a:after {
+.menu-item .nav-menu .mainmenu li:hover a:after {
 	opacity: 1;
 }
 .menu-item .nav-menu .mainmenu li:hover .dropdown {

@@ -18,7 +18,7 @@
                         <img src="{{ asset('assets/img/room/room-1.jpg') }}" alt="">
                         <div class="ri-text">
                             <h4>Hôtels</h4>
-                            <h3>60<span>établissements</span></h3>
+                            <h3>{{ $etablisssements->count() }}<span>établissements</span></h3>
                             <a href="{{ route('root_index_hotels') }}" class="primary-btn">Voir tous les hôtels</a>
                         </div>
                     </div>
@@ -60,47 +60,51 @@
     <section class="rooms-section spad">
         <div class="container">
             <div class="archivment-front text-center mt-0">
-                <h2 style="margin: 5px 0 20px 0; color: #dca73a">Explorez le Bénin</h2>
-                <p>Ces destinations prisées ont beaucoup à offrir</p>
+                <h2 style="margin: 5px 0 20px 0; color: #dca73a">Découvrez les meilleurs restaurants</h2>
+                <h4 class="mb-3">Les restaurants que vous pouvez visiter</h4>
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="room-item">
-                        <img src="{{ asset('assets/img/blog/blog-10.jpg') }}" alt="">
+                        <a href="#" class="primary-btn"><img src="{{ asset('assets/img/blog/blog-10.jpg') }}" alt="">
+                        </a>
                         <div class="ri-text">
-                            <h4>Cotonou</h4>
-                            <h3>120<span>établissements</span></h3>
-                            <a href="#" class="primary-btn">Voir</a>
+                            <h3>chez Carine</h3>
+                            <span>cotonou</span><br>
+                            <span>18h à 19h</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="room-item">
-                        <img src="{{ asset('assets/img/blog/blog-10.jpg') }}" alt="">
+                        <a href="#" class="primary-btn"><img src="{{ asset('assets/img/blog/blog-10.jpg') }}" alt="">
+                        </a>
                         <div class="ri-text">
-                            <h4>Grand-Popo</h4>
-                            <h3>60<span>établissements</span></h3>
-                            <a href="#" class="primary-btn">Voir</a>
+                            <h3>chez Carine</h3>
+                            <span>cotonou</span><br>
+                            <span>18h à 19h</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="room-item">
-                        <img src="{{ asset('assets/img/blog/blog-10.jpg') }}" alt="">
+                        <a href="#" class="primary-btn"><img src="{{ asset('assets/img/blog/blog-10.jpg') }}" alt="">
+                        </a>
                         <div class="ri-text">
-                            <h4>Ouidah</h4>
-                            <h3>60<span>établissements</span></h3>
-                            <a href="#" class="primary-btn">Voir</a>
+                            <h3>chez Carine</h3>
+                            <span>cotonou</span><br>
+                            <span>18h à 19h</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="room-item">
-                        <img src="{{ asset('assets/img/blog/blog-10.jpg') }}" alt="">
+                        <a href="#" class="primary-btn"><img src="{{ asset('assets/img/blog/blog-10.jpg') }}" alt="">
+                        </a>
                         <div class="ri-text">
-                            <h4>Porto-Novo</h4>
-                            <h3>30<span>établissements</span></h3>
-                            <a href="#" class="primary-btn">Voir</a>
+                            <h3>chez Carine</h3>
+                            <span>cotonou</span><br>
+                            <span>18h à 19h</span>
                         </div>
                     </div>
                 </div>
@@ -114,8 +118,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <span>Découvrez les meilleurs restaurants</span>
-                        <h2>Le meilleur pour vous</h2>
+                        <span></span>
+                        <h2>Les meilleures voiture à louer</h2>
                     </div>
                 </div>
             </div>

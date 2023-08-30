@@ -67,7 +67,7 @@
                     <div class="col-lg-10">
                         <div class="tn-right">
                             <div class="language-option">
-                                <img src="{{ asset('assets/img/flag.jpg') }}" alt="">
+                                <img src="{{ asset('assets/img/fr.jpeg') }}" alt="">
                                 <div class="flag-dropdown">
                                     <ul>
                                         <li><a href="{{ route('locale.switch', ['locale' => 'en']) }}">En</a></li>

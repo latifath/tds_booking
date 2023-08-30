@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Chambre extends Model
 {
@@ -33,5 +34,25 @@ class Chambre extends Model
     {
     return $this->belongsTo(Hotel::class);
     }
+
+    public function reservation_hotels()
+    {
+        return $this->hasMany(ReservationHotel::class);
+    }
+
+    public function estDisponible(Carbon $dateDebut, Carbon $dateFin)
+    {
+        return !$this->reservation_hotels()
+            ->where(function ($query) use ($dateDebut, $dateFin) {
+                $query->whereBetween('date_debut', [$dateDebut, $dateFin])
+                    ->orWhereBetween('date_fin', [$dateDebut, $dateFin])
+                    ->orWhere(function ($orQuery) use ($dateDebut, $dateFin) {
+                        $orQuery->where('date_debut', '<=', $dateDebut)
+                            ->where('date_fin', '>=', $dateFin);
+                    });
+            })
+            ->exists();
+    }
+
 
 }

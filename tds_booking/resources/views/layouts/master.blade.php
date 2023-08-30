@@ -80,6 +80,7 @@
 
     @yield('content')
 
+    @include('layouts.partials.partenaire')
     @include('layouts.partials.footer')
 
 

@@ -1,25 +1,21 @@
 @extends('layouts.master')
 
 @section('content')
- <!-- Breadcrumb Section Begin -->
- <div class="breadcrumb-section">
+<div class="breadcrumb-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-text">
-                    <h2>Tous les hôtels</h2>
+                    {{-- <h2>Chambres chez {{ $info_hotel->nom }}</h2> --}}
                     <div class="bt-option">
                         <a href="{{ route('root_index') }}">Accueil</a>
-                        <span>Hôtels</span>
+                        <span>{{ $verify_hotels }}</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Breadcrumb Section End -->
-
-<!-- Rooms Section Begin -->
 <section class="rooms-section spad">
     <div class="container">
         <div class="row">
@@ -55,7 +51,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <a href="{{ route('root_show_room_hotel', $hotel->id) }}" class="primary-btn">Voir les chambres</a>
+                        <a href="{{ route('root_show_room_hotel', $hotel->id) }}" class="primary-btn">Voir les tarifs</a>
                     </div>
                 </div>
             </div>
@@ -79,5 +75,4 @@
         </div>
     </div>
 </section>
-<!-- Rooms Section End -->
 @endsection

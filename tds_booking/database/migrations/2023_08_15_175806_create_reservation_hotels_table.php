@@ -15,10 +15,14 @@ return new class extends Migration
     {
         Schema::create('reservation_hotels', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('date_arriv');
-            $table->date('date_depart');
+            $table->date('date_debut');
+            $table->date('date_fin');
+            $table->date('total_adulte');
+            $table->date('total_child');
             $table->integer('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('restrict')->onUpdate('cascade');
+            $table->integer('chambre_id')->unsigned();
+            $table->foreign('chambre_id')->references('id')->on('chambres')->onDelete('restrict')->onUpdate('cascade');
             $table->integer('numero');
             $table->decimal('montant', 10, 2);
             $table->string('status')->default('en attente');

@@ -4,19 +4,39 @@
     </div>
     <div class="header-configure-area">
         <div class="language-option">
-            <img src="{{ asset('assets/img/flag.jpg ')}}" alt="">
-            <span>EN <i class="fa fa-angle-down"></i></span>
+            <img src="{{ asset('assets/img/fr.jpeg ')}}" alt="">
+            <span>Fr <i class="fa fa-angle-down"></i></span>
             <div class="flag-dropdown">
                 <ul>
-                    <li><a href="#">Zi</a></li>
                     <li><a href="#">Fr</a></li>
+                    <li><a href="#">En</a></li>
                 </ul>
             </div>
         </div>
-        <a href="#" class="bk-btn">Booking Now</a>
+        <a href="#" class="bk-btn">Réserver</a>
+        <a  class="etablissement" href="#" style="color: white; padding: right: 10px; padding: left;">Ajoutez votre établisement</a>
 
+    <div class="menu-item" style="background-color: #0a3b83;">
+        {{-- <div class="container"> --}}
+            <div class="row">
+                <div class="col-lg-10">
+                    <div class="nav-menu">
+                        <nav class="mainmenu" style="color: white">
+                            <ul>
+                                <li class="active"><a href="{{ route('root_index') }}">Hébergements</a></li>
+                                <li><a href="./rooms.html">Restaurants</a></li>
+                                <li><a href="./about-us.html">Voitures de location</a></li>
+                                <li><a href="./pages.html">A propos</a>
+                                <li><a href="./contact.html">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        {{-- </div> --}}
     </div>
-    <nav class="mainmenu mobile-menu">
+    </div>
+    {{-- <nav class="mainmenu mobile-menu">
         <ul>
             <li class="active"><a href="./index.html">Home</a></li>
             <li><a href="./rooms.html">Rooms</a></li>
@@ -32,16 +52,7 @@
             <li><a href="./blog.html">News</a></li>
             <li><a href="./contact.html">Contact</a></li>
         </ul>
-    </nav>
-    <div id="mobile-menu-wrap"></div>
-    <div class="top-social">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-tripadvisor"></i></a>
-        <a href="#"><i class="fa fa-instagram"></i></a>
-    </div>
-    <ul class="top-widget">
-        <li><i class="fa fa-phone"></i> (12) 345 67890</li>
-        <li><i class="fa fa-envelope"></i> info.colorlib@gmail.com</li>
-    </ul>
+    </nav> --}}
+
+
 </div>

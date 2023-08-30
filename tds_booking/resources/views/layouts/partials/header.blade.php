@@ -27,7 +27,7 @@
                 <div class="col-lg-10">
                     <div class="tn-right">
                         <div class="language-option">
-                            <img src="{{ asset('assets/img/flag.jpg') }}" alt="">
+                            <img src="{{ asset('assets/img/fr.jpeg') }}" alt="">
                             <div class="flag-dropdown">
                                 <ul>
                                     <li><a href="{{ route('locale.switch', ['locale' => 'en']) }}">En</a></li>
@@ -39,7 +39,7 @@
                         <a  class="etablissement" href="#" style="color: white; padding: right: 10px; padding: left;">Ajoutez votre établisement</a>
                         @if (Route::has('login'))
                             @auth
-                                <a class="connect" href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                                <a class="connect" href="{{ url('/dashboard') }}" class=" connect text-sm text-gray-700 dark:text-gray-500 underline" style="border: 1px solid black; padding: 5px; text-decoration: none; background-color:white; hover: #007bff;">Dashboard</a>
                             @else
                                 <a class="connect" href="{{ route('login') }}" class="connect text-sm text-gray-700 dark:text-gray-500 underline" style="border: 1px solid black; padding: 5px; text-decoration: none; background-color:white; hover: #007bff;">Se connecter</a>
 
@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div class="menu-item" style="background-color: #0a3b83;">
+        <div class="menu-item" style="{{ couleur_background_1() }}">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-10">

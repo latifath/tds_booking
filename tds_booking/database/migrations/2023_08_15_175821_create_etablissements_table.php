@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('etablissements', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('nom');
             $table->string('slug')->unique();
             $table->text('description');
             $table->string('telephone1');
