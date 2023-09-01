@@ -25,13 +25,22 @@ Route::get('/', [SitePulicController::class, 'index'])->name('root_index');
 
 Route::get('/hotels', [SitePulicController::class, 'index_hotel'])->name('root_index_hotels');
 
-Route::get('/hotel/{id}/chambres', [SitePulicController::class, 'show_room'])->name('root_show_room_hotel');
+Route::get('/hotel/{slug}', [SitePulicController::class, 'show_hotel'])->name('root_show_hotel');
 
-Route::get('/hotel/{id}/chambres/{id_chambre}/details', [SitePulicController::class, 'show'])->name('root_show_detail_romm_hotel');
+Route::get('/hotel/{slug}/chambres', [SitePulicController::class, 'show'])->name('root_show_romm_hotel');
 
 Route::get('/search', [SitePulicController::class, 'search'])->name('root_hotel_search');
 
 Route::post('/verifier-disponibilite', [ReservationController::class, 'verifierDisponibilite'])->name('root_verifier_disponibilite');
+
+Route::get('/reservation', [ReservationController::class, 'reservation'])->name('root_chambre_reservation');
+
+Route::get('se-connecter', [UserController::class, 'connexion'])->name('root_auth_login')->middleware("guest");
+
+Route::get('s-inscrire', [UserController::class, 'inscription'])->name('root_auth_register')->middleware("guest");
+
+Route::get('se-deconnecter', [UserController::class, 'deconnexion'])->name('root_deconnexion');
+
 
 
 Route::get('locale/{locale}', function ($locale) {
@@ -40,12 +49,12 @@ Route::get('locale/{locale}', function ($locale) {
     return redirect()->back();
 })->name('locale.switch');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified'
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// });

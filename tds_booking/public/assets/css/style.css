@@ -49,7 +49,7 @@ h1 {
 	font-size: 70px;
 }
 h2 {
-	font-size: 36px;
+	font-size: 30px;
 }
 h3 {
 	font-size: 20px;
@@ -113,8 +113,8 @@ ul, ol {
 	background-position: top center;
 }
 .spad {
-	padding-top: 100px;
-	padding-bottom: 100px;
+	/* padding-top: 100px; */
+	padding-bottom: 50px;
 }
 .spad-2 {
 	padding-top: 50px;
@@ -271,7 +271,7 @@ ul, ol {
 	box-shadow: 0px 12px 15px rgba(36, 11, 12, 0.05);
 }
 .top-nav {
-    background-color: #0a3b83;
+    background-color: #4312b4;
     padding-top: 15px;
 }
 .top-nav .tn-left li {
@@ -507,19 +507,19 @@ ul, ol {
 	z-index: 5;
 }
 .hero-text {
-	padding-top: 145px;
+	padding-top: 25px;
 }
 .hero-text h1 {
-	font-size: 80px;
-	line-height: 90px;
+	font-size: 48px;
+	line-height: 70px;
 	color: #ffffff;
-	margin-bottom: 16px;
+	/* margin-bottom: 16px; */
 }
 .hero-text p {
 	font-size: 18px;
 	color: #ffffff;
 	line-height: 28px;
-	margin-bottom: 35px;
+	/* margin-bottom: 35px; */
 }
 .booking-form {
 	background: #ffffff;
@@ -549,7 +549,7 @@ ul, ol {
     font-size: 16px;
     color: #19191a;
     font-weight: 500;
-    padding-left: 20px;
+    /* padding-left: 20px; */
     border-color: #dca73a;
 
 }
@@ -650,7 +650,6 @@ ul, ol {
     text-align: center;
     color: white;
 	height: 100%;
-    background-color: #0a3b83;
 }
 /*---------------------
   About US
@@ -872,7 +871,7 @@ ul, ol {
 -----------------------*/
 
 .footer-section {
-	background: #0a3b83;
+	background: #4312b4;
 }
 .footer-section .footer-text {
 	padding: 50px 0 30px;
@@ -892,13 +891,12 @@ ul, ol {
 }
 .footer-section .footer-text .ft-about .fa-social a {
 	display: inline-block;
-	height: 40px;
-	width: 40px;
+	height: 25px;
+	width: 30px;
 	font-size: 16px;
 	line-height: 40px;
 	text-align: center;
 	color: #ffffff;
-	border: 1px solid #5A4D48;
 	border-radius: 50%;
 	-webkit-transition: all 0.3s;
 	-o-transition: all 0.3s;
@@ -923,7 +921,7 @@ ul, ol {
 }
 .footer-section .footer-text .ft-contact ul li {
 	font-size: 16px;
-	color: #aaaab3;
+	color: #ffffff;
 	line-height: 32px;
 	list-style: none;
 }
@@ -1168,7 +1166,7 @@ ul, ol {
 
 .rooms-section {
 	padding-top: 0;
-	padding-bottom: 50px;
+	padding-bottom: 100px;
 }
 .room-item {
 	margin-bottom: 30px;
@@ -1446,7 +1444,7 @@ ul, ol {
 	display: inline-block;
 }
 .room-booking {
-	padding: 0 30px 0 40px;
+	padding: 10px 30px 10px 40px;
 }
 .room-booking h3 {
 	color: #19191a;
@@ -1458,7 +1456,7 @@ ul, ol {
 }
 .room-booking form .check-date label {
 	font-size: 14px;
-	color: #707079;
+	color: white;
 	display: block;
 	margin-bottom: 10px;
 }
@@ -1469,7 +1467,7 @@ ul, ol {
 	border-radius: 2px;
 	font-size: 16px;
 	color: #19191a;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	font-weight: 500;
 	padding-left: 20px;
 }
@@ -2019,7 +2017,7 @@ ul, ol {
 	.canvas-open {
 		position: absolute;
 		right: 60px;
-		top: 15px;
+		top: 20px;
 		font-size: 22px;
 		width: 30px;
 		height: 30px;

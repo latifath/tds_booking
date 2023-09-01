@@ -12,7 +12,6 @@
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
         <!-- Css Styles -->
         <link rel="stylesheet" href="{{ asset('assets/lib/bootstrap.min.css') }}" >
         <link rel="stylesheet" href="{{ asset('assets/lib/font-awesome.min.css') }}" >
@@ -27,7 +26,7 @@
     </head>
 
     <style>
-            body{
+        body{
         margin:0;
         padding:0;
             }
@@ -46,19 +45,16 @@
             -o-transition:all 05s ease;
             transition:all .5s ease;
         }
-        .portfolio-item{
-            /*width:100%;*/
-        }
         .portfolio-item .item{
             float:left;
             margin-bottom:10px;
         }
+
+        .room-booking{
+            background-color: #4312b4 !important;
+        }
+
         @media only screen and (max-width: 991px){
-            .top-nav {
-            }
-            .etablissement{
-                display: none;
-            }
             .connect{
                 display: none;
             }
@@ -77,8 +73,9 @@
             .booking-form {
                 padding: 20px 10px 50px 10px;
             }
-            ..booking-form form button{
-                display: inline;            }
+            .booking-form form button{
+                display: inline;
+            }
         }
     </style>
 
@@ -100,17 +97,17 @@
     @include('layouts.partials.nav')
 
     @include('layouts.partials.header')
-
+    @section('content')
     <!-- Breadcrumb Section Begin -->
     <div class="breadcrumb-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <h2>Chambres chez {{ $info_hotel->nom }}</h2>
+                        <h2>Hotel #{{ $hotel->nom }}</h2>
                         <div class="bt-option">
                             <a href="{{ route('root_index') }}">Accueil</a>
-                            <span>Chambre</span>
+                            <span>Hôtel</span>
                         </div>
                     </div>
                 </div>
@@ -119,77 +116,69 @@
     </div>
     <!-- Breadcrumb Section End -->
 
-    {{-- <section class="room-details-section spad">
+    <section class="room-details-section spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
                     <div class="room-details-item">
-                        @foreach($details_room as $room)
-                            <img src="{{ asset('assets/img/room/room-details.jpg') }}" alt="">
-                            <div class="container">
+                        <img src="{{ asset('assets/img/room/room-details.jpg') }}" alt="">
+                        <div class="container">
 
-                                <div class="portfolio-item row">
-                                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
-                                    <a href="{{ asset('assets/img/room/room-details.jpg') }}" class="fancylight popup-btn" data-fancybox-group="light">
-                                    <img class="img-fluid" src="{{ asset('assets/img/room/room-details.jpg') }}" alt="">
-                                    </a>
-                                </div>
-                                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
-                                    <a href="{{ asset('assets/img/room/room-4.jpg') }}" class="fancylight popup-btn" data-fancybox-group="light">
-                                    <img class="img-fluid" src="{{ asset('assets/img/room/room-4.jpg') }}" alt="">
-                                    </a>
-                                </div>
-                                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
-                                    <a href="{{ asset('assets/img/room/room-6.jpg') }}" class="fancylight popup-btn" data-fancybox-group="light">
-                                    <img class="img-fluid" src="{{ asset('assets/img/room/room-6.jpg') }}" alt="">
-                                    </a>
-                                </div>
-                                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
-                                    <a href="{{ asset('assets/img/room/room-3.jpg') }}" class="fancylight popup-btn" data-fancybox-group="light">
-                                    <img class="img-fluid" src="{{ asset('assets/img/room/room-3.jpg') }}" alt="">
-                                    </a>
-                                </div>
-                                </div>
+                            <div class="portfolio-item row">
+                            <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
+                                <a href="{{ asset('assets/img/room/room-details.jpg') }}" class="fancylight popup-btn" data-fancybox-group="light">
+                                <img class="img-fluid" src="{{ asset('assets/img/room/room-details.jpg') }}" alt="">
+                                </a>
                             </div>
-                            <div class="rd-text">
-                                <div class="rd-title">
-                                    <h3>{{ $room->nom }}</h3>
-                                    <div class="rdt-right">
-                                        <div class="rating">
-                                            <i class="fa fa-star-o" ></i>
-                                            <i class="fa fa-star-o" ></i>
-                                            <i class="fa fa-star-o" ></i>
-                                            <i class="fa fa-star-o" ></i>
-                                            <i class="fa fa-star-o" ></i>
-                                        </div>
-                                        <a href="{{ route('root_chambre_reservation', $room->id) }}">Réserver Maintenant</a>
+                            <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
+                                <a href="{{ asset('assets/img/room/room-4.jpg') }}" class="fancylight popup-btn" data-fancybox-group="light">
+                                <img class="img-fluid" src="{{ asset('assets/img/room/room-4.jpg') }}" alt="">
+                                </a>
+                            </div>
+                            <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
+                                <a href="{{ asset('assets/img/room/room-6.jpg') }}" class="fancylight popup-btn" data-fancybox-group="light">
+                                <img class="img-fluid" src="{{ asset('assets/img/room/room-6.jpg') }}" alt="">
+                                </a>
+                            </div>
+                            <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
+                                <a href="{{ asset('assets/img/room/room-3.jpg') }}" class="fancylight popup-btn" data-fancybox-group="light">
+                                <img class="img-fluid" src="{{ asset('assets/img/room/room-3.jpg') }}" alt="">
+                                </a>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="rd-text">
+                            <div class="rd-title">
+                                <h3 >{{ $hotel->nom }}</h3>
+                                <div class="rdt-right">
+                                    <div class="rating">
+                                        <i class="fa fa-star-o" ></i>
+                                        <i class="fa fa-star-o" ></i>
+                                        <i class="fa fa-star-o" ></i>
+                                        <i class="fa fa-star-o" ></i>
+                                        <i class="fa fa-star-o" ></i>
                                     </div>
+                                    <a href="{{ route('root_chambre_reservation', $hotel->id) }}">Réserver Maintenant</a>
                                 </div>
-                                <h2>{{ format_price_xof($room->night) }}<span>/Par nuit</span></h2>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td class="r-o">Superficie:</td>
-                                            <td>{{ $room->superficie }}ft</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="r-o">Lit:</td>
-                                            <td>{{ $room->Nombre_lit }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="r-o">Prestation:</td>
-                                            <td>
-                                                <i class="fa fa-wifi" style="padding-right: 5px"> Wi-Fi Gratuit </i>
-                                                <i class="fa fa-television" style="padding-right: 5px"> Television</i>
-                                                <i class="fa fa-bath" style="padding-right: 5px"> Salle de bain</i>
-                                                <i class="fas fa-air-conditioner" style="padding-right: 5px"> Climatisation</i>
-                                            </td>
-                                            </tr>
-                                    </tbody>
-                                </table>
-                                <p class="f-para">{{ $room->description }}</p>
                             </div>
-                            @endforeach
+                            <h6><i class="fa fa-map-marker" style="color: #dca73a;"></i>{{ $hotel->adresse}}<span>, </span>{{ $hotel->code_postal }} {{ $hotel->ville }} <span>, </span>Bénin</h6>
+                            <br>
+                            <p class="f-para">{{ $hotel->description }}</p>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="r-o">Prestation:</td>
+                                        <td>
+                                            <i class="fa fa-wifi" style="padding-right: 5px;"> Connexion Wi-Fi gratuit </i>
+                                            <i class="fa fa-television" style="padding-right: 5px"> Television</i>
+                                            <i class="fa fa-air-conditioner" style="padding-right: 5px"> Climatisation</i>
+                                            <i class="fa fa-cutlery" style="padding-right: 5px"> Restaurants</i>
+                                            <i class="fa fa-clock-o" style="padding-right: 5px"> Réception ouverte 24h/24</i>
+                                        </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -203,10 +192,10 @@
                         </div>
                     @endif
                     <div class="room-booking">
-                        <h3>Votre réservation</h3>
+                        <h3 style="color: white;">Votre réservation</h3>
                         <form action="{{ route('root_verifier_disponibilite') }}" method="POST">
                             @csrf
-                            <input type="hidden" name="chambre_id" value="{{ $room->id }}">
+                            <input type="hidden" name="hotel_id" value="{{ $hotel->id }}">
                             <div class="check-date">
                                 <label for="date-in">Date d'arrivée:</label>
                                 <input type="date" class="" id="date_debut" name="date_debut" required>
@@ -242,7 +231,7 @@
 
             </div>
         </div>
-    </section> --}}
+    </section>
 
     @include('layouts.partials.footer')
 
@@ -260,6 +249,7 @@
     <script src="{{ asset('assets/js/main.js') }}"></script>
 
     <script>
+
         $('.portfolio-menu ul li').click(function(){
             $('.portfolio-menu ul li').removeClass('active');
             $(this).addClass('active');

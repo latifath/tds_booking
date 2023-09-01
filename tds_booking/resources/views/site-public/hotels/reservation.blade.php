@@ -13,6 +13,7 @@
         <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
         <!-- Css Styles -->
         <link rel="stylesheet" href="{{ asset('assets/lib/bootstrap.min.css') }}" >
         <link rel="stylesheet" href="{{ asset('assets/lib/font-awesome.min.css') }}" >
@@ -25,89 +26,85 @@
         <link rel="stylesheet" href="{{ asset('assets/lib/slicknav.min.css') }}" >
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     </head>
-
     <style>
-            body{
-        margin:0;
-        padding:0;
-            }
-        .portfolio-menu{
-            text-align:center;
+        .h-for{
+            height: 750px;
         }
-        .portfolio-menu ul li{
-            display:inline-block;
-            margin:0;
-            list-style:none;
-            padding:10px 15px;
-            cursor:pointer;
-            -webkit-transition:all 05s ease;
-            -moz-transition:all 05s ease;
-            -ms-transition:all 05s ease;
-            -o-transition:all 05s ease;
-            transition:all .5s ease;
+        .connect:hover {
+        color: #007bff;
         }
-        .portfolio-item{
-            /*width:100%;*/
-        }
-        .portfolio-item .item{
-            float:left;
-            margin-bottom:10px;
-        }
-        @media only screen and (max-width: 991px){
-            .top-nav {
-            }
-            .etablissement{
-                display: none;
-            }
-            .connect{
-                display: none;
-            }
 
-            .tn-right{
+        @media only screen and (max-width: 991px){
+        .canvas-open {
+            display:none;
+        }
+        .tn-right{
             margin-top: -35px;
             margin-right: 50px;
-            }
-
-            .canvas-open{
-                right: 20px;
-            }
-            .d-flex {
-                display: contents !important;
-            }
-            .booking-form {
-                padding: 20px 10px 50px 10px;
-            }
-            ..booking-form form button{
-                display: inline;            }
+        }
         }
     </style>
 
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
-
-    <!-- Offcanvas Menu Section Begin -->
     <div class="offcanvas-menu-overlay"></div>
     <div class="canvas-open">
         <div class="connect-menu d-flex">
-            <i class="fa fa-bars"
-            ></i>
+            <i class="fa fa-bars" style="padding-right: 15px !important;
+            "></i>
+            <i class="fa fa-bars"></i>
         </div>
 
     </div>
-    @include('layouts.partials.nav')
+    <header class="header-section">
+        <div class="top-nav" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="logo">
+                            <a href="{{ route('root_index') }}">
+                                <img src="{{ asset('assets/img/logo.png') }}" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="tn-right">
+                            <div class="language-option">
+                                <img src="{{ asset('assets/img/fr.jpeg') }}" alt="">
+                                <div class="flag-dropdown">
+                                    <ul>
+                                        <li><a href="{{ route('locale.switch', ['locale' => 'en']) }}">En</a></li>
+                                        <li><a href="{{ route('locale.switch', ['locale' => 'fr']) }}">Fr</a></li>
 
-    @include('layouts.partials.header')
+                                    </ul>
+                                </div>
+                            </div>
+                            <a  class="etablissement" href="#" style="color: white; padding: right: 10px; padding: left;">Ajoutez votre établisement</a>
+                            @if (Route::has('login'))
+                                @auth
+                                    <a class="connect" href="{{ url('/dashboard') }}" class=" connect text-sm text-gray-700 dark:text-gray-500 underline" style="border: 1px solid black; padding: 5px; text-decoration: none; background-color:white; hover: #007bff;">Dashboard</a>
+                                @else
+                                    <a class="connect" href="{{ route('login') }}" class="connect text-sm text-gray-700 dark:text-gray-500 underline" style="border: 1px solid black; padding: 5px; text-decoration: none; background-color:white; hover: #007bff;">Se connecter</a>
 
-    <!-- Breadcrumb Section Begin -->
+                                    @if (Route::has('register'))
+                                        <a class="connect" href="{{ route('register') }}" class="connect ml-4 text-sm text-gray-700 dark:text-gray-500 underline" style="border: 1px solid black; padding: 5px; text-decoration: none; background-color:white">S'inscrire</a>
+                                    @endif
+                                @endauth
+                            @endif
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </header>
+    <div class="container">
+        <div class="row mt-3">
+            <!-- Breadcrumb Section Begin -->
     <div class="breadcrumb-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb-text">
-                        <h2>Chambres chez {{ $info_hotel->nom }}</h2>
+                        <h2>Chambres chez </h2>
                         <div class="bt-option">
                             <a href="{{ route('root_index') }}">Accueil</a>
                             <span>Chambre</span>
@@ -118,13 +115,12 @@
         </div>
     </div>
     <!-- Breadcrumb Section End -->
-
-    {{-- <section class="room-details-section spad">
+ <section class="room-details-section spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
                     <div class="room-details-item">
-                        @foreach($details_room as $room)
+                        @foreach ($chambresDisponibles as $chambre)
                             <img src="{{ asset('assets/img/room/room-details.jpg') }}" alt="">
                             <div class="container">
 
@@ -153,7 +149,7 @@
                             </div>
                             <div class="rd-text">
                                 <div class="rd-title">
-                                    <h3>{{ $room->nom }}</h3>
+                                    <h3>{{ $chambre->nom }}</h3>
                                     <div class="rdt-right">
                                         <div class="rating">
                                             <i class="fa fa-star-o" ></i>
@@ -162,19 +158,19 @@
                                             <i class="fa fa-star-o" ></i>
                                             <i class="fa fa-star-o" ></i>
                                         </div>
-                                        <a href="{{ route('root_chambre_reservation', $room->id) }}">Réserver Maintenant</a>
+                                        <a href="{{ route('root_chambre_reservation', $chambre->id) }}">Réserver Maintenant</a>
                                     </div>
                                 </div>
-                                <h2>{{ format_price_xof($room->night) }}<span>/Par nuit</span></h2>
+                                <h2>{{ format_price_xof($chambre->night) }}<span>/Par nuit</span></h2>
                                 <table>
                                     <tbody>
                                         <tr>
                                             <td class="r-o">Superficie:</td>
-                                            <td>{{ $room->superficie }}ft</td>
+                                            <td>{{ $chambre->superficie }}ft</td>
                                         </tr>
                                         <tr>
                                             <td class="r-o">Lit:</td>
-                                            <td>{{ $room->Nombre_lit }}</td>
+                                            <td>{{ $chambre->Nombre_lit }}</td>
                                         </tr>
                                         <tr>
                                             <td class="r-o">Prestation:</td>
@@ -187,100 +183,20 @@
                                             </tr>
                                     </tbody>
                                 </table>
-                                <p class="f-para">{{ $room->description }}</p>
+                                <p class="f-para">{{ $chambre->description }}</p>
                             </div>
                             @endforeach
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    @if (Session::has('message'))
-                        <div class="alert alert-success" role="alert">
-                            {{Session::get('message')}}
-                        </div>
-                    @elseif (Session::has('error'))
-                        <div class="alert alert-warning" role="alert">
-                            {{Session::get('error')}}
-                        </div>
-                    @endif
-                    <div class="room-booking">
-                        <h3>Votre réservation</h3>
-                        <form action="{{ route('root_verifier_disponibilite') }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="chambre_id" value="{{ $room->id }}">
-                            <div class="check-date">
-                                <label for="date-in">Date d'arrivée:</label>
-                                <input type="date" class="" id="date_debut" name="date_debut" required>
-                                <i class="icon_calendar"></i>
-                            </div>
-                            <div class="check-date">
-                                <label for="date-out">Date de depart:</label>
-                                <input type="date" class="" id="date_fin" name="date_fin" required>
-                                <i class="icon_calendar"></i>
-                            </div>
-                            <div class="check-date">
-                                <label for="room">Chambre:</label>
-                                <input type="number" id="room" name="nombre_chambre" min="1">
-                            </div>
-                            <div class="check-date">
-                                <label for="guest">Adulte:</label>
-                                <input type="number" name="nombre_adulte" min="1">
-                            </div>
-                            <div class="check-date">
-                                <label for="child">Enfant:</label>
-                                <input type="number" name="nombre_enfant" min="0">
-                            </div>
-                            <button type="submit" style="{{ couleur_background_2() }}; {{ text_color() }}">Disponibilité</button>
-                        </form>
-                    </div>
-                    <div class="map">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.0606825994123!2d-72.8735845851828!3d40.760690042573295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e85b24c9274c91%3A0xf310d41b791bcb71!2sWilliam%20Floyd%20Pkwy%2C%20Mastic%20Beach%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1578582744646!5m2!1sen!2sbd"
-                            height="470" style="border:0;" allowfullscreen="">
-                        </iframe>
-                    </div>
+
                 </div>
 
             </div>
         </div>
-    </section> --}}
+    </section>
 
-    @include('layouts.partials.footer')
-
-    @yield('js')
-
-    <!-- Js Plugins -->
-    <script src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery-ui.min.js') }}"></script>
-    <script src="{{ asset('assets/js/jquery.slicknav.js') }}"></script>
-    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
-    <!-- Template Javascript -->
-    <script src="{{ asset('assets/js/main.js') }}"></script>
-
-    <script>
-        $('.portfolio-menu ul li').click(function(){
-            $('.portfolio-menu ul li').removeClass('active');
-            $(this).addClass('active');
-
-            var selector = $(this).attr('data-filter');
-            $('.portfolio-item').isotope({
-                filter:selector
-            });
-            return  false;
-        });
-        $(document).ready(function() {
-        var popup_btn = $('.popup-btn');
-        popup_btn.magnificPopup({
-        type : 'image',
-        gallery : {
-            enabled : true
-        }
-        });
-        });
-   </script>
-
+        </div>
+    </div>
 </body>
-
 </html>

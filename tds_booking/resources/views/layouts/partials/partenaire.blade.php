@@ -26,8 +26,8 @@
 }
 </style>
 
-<div class="col-md-8 offset-sm-2 mb-5">
-    <h2 style="margin: 5px 0 20px 0; color: #dca73a; text-align:center;">Nos partenaires</h2>
+<div class="col-md-8 offset-sm-2 mb-5 mt-3">
+    <h2 style="margin: 5px 0 20px 0; color: #dca73a; text-align:center; padding-top: 50px;">Nos partenaires</h2>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">

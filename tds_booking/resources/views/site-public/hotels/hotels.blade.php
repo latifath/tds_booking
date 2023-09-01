@@ -55,7 +55,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <a href="{{ route('root_show_room_hotel', $hotel->id) }}" class="primary-btn">Voir les tarifs</a>
+                        <a href="{{ route('root_show_hotel', $hotel->slug) }}" class="primary-btn">Voir les tarifs</a>
                     </div>
                 </div>
             </div>

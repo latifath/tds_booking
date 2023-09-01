@@ -29,17 +29,11 @@
 
     <style>
         @media only screen and (max-width: 991px){
-            .top-nav {
-            }
-            .etablissement{
-                display: none;
-            }
             .connect{
                 display: none;
             }
 
             .tn-right{
-            margin-top: -35px;
             margin-right: 50px;
             }
 
@@ -76,7 +70,7 @@
 
     @include('layouts.partials.header')
 
-    @include('layouts.partials.mini-header')
+    @include('layouts.partials.search')
 
     @yield('content')
 

@@ -47,31 +47,7 @@ class ChambreSeeder extends Seeder
                 "hotel_id"=> "1",
                 "created_at"=>Carbon::now()
             ]
-            // ["nom"=> "classique",
-            // "slug"=> "classi",
-            // "description"=> "hôtelde luxe",
-            // "night"=> "28000",
-            // "Nombre_lit"=> "1",
-            // "numero"=> "03",
-            // "superficie"=> "2",
-            // "availability"=> "disponible",
-            // "media_id"=> "1",
-            // "type_chambre_id"=> "3",
-            // "created_at"=>Carbon::now()
-            // ],
-            // [
-            //     "nom"=> "superireu",
-            //     "slug"=> "su",
-            //     "description"=> "hôtelde luxe",
-            //     "night"=> "28000",
-            //     "Nombre_lit"=> "1",
-            //     "numero"=> "04",
-            //     "superficie"=> "2",
-            //     "availability"=> "disponible",
-            //     "media_id"=> "1",
-            //     "type_chambre_id"=> "1",
-            //     "created_at"=>Carbon::now()
-            // ],
+
         ]);
     }
 }

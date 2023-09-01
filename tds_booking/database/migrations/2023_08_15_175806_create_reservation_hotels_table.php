@@ -17,8 +17,8 @@ return new class extends Migration
             $table->increments('id');
             $table->date('date_debut');
             $table->date('date_fin');
-            $table->date('total_adulte');
-            $table->date('total_child');
+            $table->integer('capacite_adultes')->default(1);
+            $table->integer('capacite_enfants')->default(0);
             $table->integer('client_id')->unsigned();
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('restrict')->onUpdate('cascade');
             $table->integer('chambre_id')->unsigned();

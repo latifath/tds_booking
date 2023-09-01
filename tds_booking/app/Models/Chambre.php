@@ -54,5 +54,4 @@ class Chambre extends Model
             ->exists();
     }
 
-
 }

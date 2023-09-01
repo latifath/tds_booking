@@ -11,7 +11,7 @@ class ReservationHotel extends Model
     use HasFactory;
 
 
-    protected $fillable = [ 'date_debut', 'date_fin', 'total_adulte', 'total_child', 'chambre_id', 'client_id', 'numero','status', 'created_at', 'updated_at' ];
+    protected $fillable = [ 'date_debut', 'date_fin', 'capacite_adultes', 'capacite_enfants', 'chambre_id', 'client_id', 'numero','status', 'created_at', 'updated_at' ];
 
     public function payements()
     {

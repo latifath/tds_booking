@@ -11,10 +11,10 @@ class SitePulicController extends Controller
 {
     public function index(){
 
-        $etablisssements = Etablissement::where('nom', 'hotel')->get();
+        $last_hotels = Hotel::orderBy('id', 'DESC')->limit(4)->get();
 
 
-        return view('site-public.index', compact('etablisssements'));
+        return view('site-public.index', compact('last_hotels'));
     }
 
     public function index_hotel(){
@@ -24,13 +24,11 @@ class SitePulicController extends Controller
         return view('site-public.hotels.hotels', compact('hotels'));
     }
 
-    public function show_room($id) {
+    public function show_hotel($slug) {
 
-        $hotel = Hotel::findOrfail($id);
+        $hotel = Hotel::where('slug', $slug)->first();
 
-        $rooms = Chambre::where('hotel_id', $hotel->id)->get();
-
-        return view('site-public.hotels.chambres', compact('rooms', 'hotel'));
+        return view('site-public.hotels.details-hotel', compact('hotel'));
     }
 
     public function show($id, $id_chambre){
